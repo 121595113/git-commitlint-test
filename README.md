@@ -1,6 +1,8 @@
 # 前端规范
 
-## 一、全局安装依赖
+## 一、安装依赖
+
+### 1、全局额
 
 > Commitizen是一个撰写合格 Commit message 的工具。
 
@@ -19,6 +21,32 @@ commitizen init cz-conventional-changelog --save --save-exact
 ```json
 {
   "commit": "git-cz"
+}
+```
+
+### 2、项目中
+
+```bash
+npm i cz-conventional-changelog -D
+```
+
+package.json中添加config字段，配置如下：
+
+```json
+{
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
+```
+
+给package.json添加脚本scripts
+
+```json
+{
+  "commit": "npx git-cz"
 }
 ```
 

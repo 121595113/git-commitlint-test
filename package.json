@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "commit": "git-cz",
+    "commit": "npx git-cz",
     "release": "standard-version",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -w -s -r 0",
     "eslint": "eslint --fix --format codeframe 'src/**/**.{js,vue}'"
