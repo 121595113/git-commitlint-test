@@ -2,6 +2,8 @@
 
 ## 摘要
 
+### Commit Message
+
 项目的 Git Commit Message 参考了 [AngularJS 规范](https://links.jianshu.com/go?to=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y)
 
 ```js
