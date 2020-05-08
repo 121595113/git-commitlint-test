@@ -1,6 +1,49 @@
-# 前端规范
+# 前端代码规范之路
 
-## 一、安装依赖
+## 摘要
+
+项目的 Git Commit Message 参考了 [AngularJS 规范](https://links.jianshu.com/go?to=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y)
+
+```js
+<type>(<scope>): <subject>
+// 空一行
+<body>
+// 空一行
+<footer>
+```
+
+### type 类型，修改的类型级别
+
+- feat: 新功能
+- fix: 修补 Bug
+- docs: 文档
+- style: 格式变更，不影响代码的运行
+- refactor: 重构（既不是新增功能，也不是修改 bug 的代码变- 动）
+- perf: 重构（性能优化）
+- test: 增加测试
+- chore: 构建过程或辅助工具的变动
+- up: 不属于上述分类时，可使用此类别
+- merge: 用于 merge branch 时，需要手写 commit message 的情况
+- revert: 用于撤销之前的 commit
+- scope 修改范围，主要是这次修改涉及到的部分，最好简单的概括
+- subject 修改的副标题，主要是具体修改的加点
+- body 修改的主体标注
+- footer 放置不兼容变更和Issue关闭的信息
+
+### npm scripts
+
+```json
+{
+  "scripts": {
+    "commit": "npx git-cz",
+    "release": "standard-version",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -w -s -r 0",
+    "eslint": "eslint --fix --format codeframe 'src/**/**.{js,vue}'"
+  }
+}
+```
+
+## 一、git commit替代方案(2选1)
 
 ### 1、全局
 
@@ -24,7 +67,7 @@ commitizen init cz-conventional-changelog --save --save-exact
 }
 ```
 
-### 2、项目中
+### 2、项目中安装依赖
 
 ```bash
 npm i cz-conventional-changelog -D
@@ -151,7 +194,7 @@ npm install conventional-changelog-cli -D
 
 > -s –same-file 输出到指定文件 CHANGELOG.md -r 0 –release-count tag生成数量，0为重新生成整个变更日志，包含所有tag
 
-## 综合使用
+## 三、综合使用
 
 ```bash
 npm i
@@ -159,19 +202,19 @@ git add --all
 npm run commit
 ```
 
-## 自动生成版本号
+### 自动生成版本号
 
 ```bash
 npm run release #-- --release-as 1.0.0
 ```
 
-## eslint代码检查
+### eslint代码检查
 
 ```bash
 npm run eslint
 ```
 
-## 自动changelog文件
+### 自动changelog文件
 
 ```bash
 npm run changelog
