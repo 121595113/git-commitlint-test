@@ -72,7 +72,7 @@ lint-staged可以对git暂存中的代码进行格式校验，package.json添加
 
 ```json
 "lint-staged": {
-  "src/**.{js,vue}": [
+  "src/**/**.{js,vue}": [
     "eslint --fix",
     "git add"
   ]
