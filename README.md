@@ -12,23 +12,22 @@
 <footer>
 ```
 
-### type 类型，修改的类型级别
-
-- feat: 新功能
-- fix: 修补 Bug
-- docs: 文档
-- style: 格式变更，不影响代码的运行
-- refactor: 重构（既不是新增功能，也不是修改 bug 的代码变- 动）
-- perf: 重构（性能优化）
-- test: 增加测试
-- chore: 构建过程或辅助工具的变动
-- up: 不属于上述分类时，可使用此类别
-- merge: 用于 merge branch 时，需要手写 commit message 的情况
-- revert: 用于撤销之前的 commit
-- scope 修改范围，主要是这次修改涉及到的部分，最好简单的概括
-- subject 修改的副标题，主要是具体修改的加点
-- body 修改的主体标注
-- footer 放置不兼容变更和Issue关闭的信息
+- `type` 类型，修改的类型级别:
+  - feat: 新功能
+  - fix: 修补 Bug
+  - docs: 文档
+  - style: 格式变更，不影响代码的运行
+  - refactor: 重构（既不是新增功能，也不是修改 bug 的代码变- 动）
+  - perf: 重构（性能优化）
+  - test: 增加测试
+  - chore: 构建过程或辅助工具的变动
+  - up: 不属于上述分类时，可使用此类别
+  - merge: 用于 merge branch 时，需要手写 commit message 的情况
+  - revert: 用于撤销之前的 commit
+- `scope` 修改范围，主要是这次修改涉及到的部分，最好简单的概括
+- `subject` 修改的副标题，主要是具体修改的加点
+- `body` 修改的主体标注
+- `footer` 放置不兼容变更和Issue关闭的信息
 
 ### npm scripts
 
