@@ -2,7 +2,7 @@
 
 ## 一、安装依赖
 
-### 1、全局额
+### 1、全局
 
 > Commitizen是一个撰写合格 Commit message 的工具。
 
