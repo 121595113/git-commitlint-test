@@ -1,20 +1,31 @@
 {
   "name": "test",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "commit": "git-cz",
+    "release": "standard-version",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "eslint": "eslint --fix --format codeframe 'src/**.{js,vue}'"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "conventional-changelog-cli": "^2.0.31",
+    "cz-conventional-changelog": "^3.2.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-vue": "^6.2.2",
     "ghooks": "^2.0.4",
+    "lint-staged": "^10.2.2",
+    "standard-version": "^8.0.0",
     "validate-commit-msg": "^2.14.0"
   },
   "config": {
     "ghooks": {
-
+      "pre-commit": "lint-staged",
+      "commit-msg": "validate-commit-msg"
     },
     "validate-commit-msg": {
       "types": [
@@ -43,7 +54,16 @@
       "subjectPattern": ".+",
       "subjectPatternErrorMsg": "subject does not match subject pattern!",
       "helpMessage": "",
-      "autoFix": false
+      "autoFix": true
+    },
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "lint-staged": {
+    "src/**.{js,vue}": [
+      "eslint --fix",
+      "git add"
+    ]
   }
 }
