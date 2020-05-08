@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "commit": "git-cz",
-    "release": "standard-version --skip.changelog",
+    "release": "standard-version",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -w -r 0",
     "eslint": "eslint --fix --format codeframe 'src/**.{js,vue}'"
   },
