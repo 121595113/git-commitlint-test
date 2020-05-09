@@ -44,20 +44,14 @@
 }
 ```
 
-## 一、git commit替代方案(2选1)
-
-### 1、全局
+## 一、git commit替代方案
 
 > Commitizen是一个撰写合格 Commit message 的工具。
-
-```bash
-npm install -g commitizen
-```
 
 项目下执行
 
 ```bash
-commitizen init cz-conventional-changelog --save --save-exact
+npx commitizen init cz-conventional-changelog --save-dev --save-exact
 ```
 
 以后，凡是用到git commit命令，一律改为使用git cz 或者 给package.json添加脚本scripts
@@ -65,32 +59,6 @@ commitizen init cz-conventional-changelog --save --save-exact
 ```json
 {
   "commit": "git-cz"
-}
-```
-
-### 2、项目中安装依赖
-
-```bash
-npm i cz-conventional-changelog -D
-```
-
-package.json中添加config字段，配置如下：
-
-```json
-{
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  }
-}
-```
-
-给package.json添加脚本scripts
-
-```json
-{
-  "commit": "npx git-cz"
 }
 ```
 
