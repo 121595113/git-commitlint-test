@@ -177,6 +177,13 @@ npm run commit
 npm run release #-- --release-as 1.0.0
 ```
 
+- `-r` Specify the release type manually 自定义版本
+- `-p` This will tag your version as: 1.0.1-0 小版本
+- `-p alpha` This will tag the version as: 1.0.1-alpha.0
+- `-m` [DEPRECATED] Commit message, replaces %s with new version.\nThis option will be removed in the next major version, please use --releaseCommitMessageFormat.
+- `-n` Bypass pre-commit or commit-msg git hooks during the commit phase
+- `-t` Set a custom prefix for the git tag to be created
+
 ### eslint代码检查
 
 ```bash
