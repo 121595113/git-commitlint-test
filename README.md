@@ -97,6 +97,7 @@ npm i validate-commit-msg ghooks -D
       "helpMessage": "",
       "autoFix": true
     }
+  }
 }
 ```
 
