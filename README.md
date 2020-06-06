@@ -36,7 +36,7 @@
 ```json
 {
   "scripts": {
-    "commit": "npx git-cz",
+    "commit": "commit",
     "release": "standard-version",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -w -s -r 0",
     "eslint": "eslint --fix --format codeframe 'src/**/**.{js,vue}'"
@@ -44,58 +44,43 @@
 }
 ```
 
-## 一、git commit替代方案
+## 一、项目下安装commitlint依赖
 
-> Commitizen是一个撰写合格 Commit message 的工具。
-
-项目下执行
+### 1、`git commit`替代方案(可选)
 
 ```bash
-npx commitizen init cz-conventional-changelog --save-dev --save-exact
+npm install --save-dev @commitlint/{cli,config-conventional}
 ```
 
-以后，凡是用到git commit命令，一律改为使用git cz 或者 给package.json添加脚本scripts
+package.json添加`commitlint`filed,配置如下:
 
 ```json
-{
-  "commit": "git-cz"
-}
+"commitlint": {
+  "extends": [
+    "@commitlint/config-conventional"
+  ]
+},
 ```
 
 ## 二、配置
 
-### 1、validate-commit-msg
+### 1、commit-msg
 
 安装
 
 ```bash
-npm i validate-commit-msg ghooks -D
+npm i ghooks -D
 ```
 
-> validate-commit-msg 用于检查 Node 项目的 Commit message 是否符合格式
+> 用`commitlint`检查 Node 项目的 Commit message 是否符合格式
 
-使用`ghooks`，把`validate-commit-msg`加为commit-msg时运行
+使用`ghooks`，把`commitlint`加为commit-msg时运行
 
 ```json
 {
   "config": {
     "ghooks": {
-      "commit-msg": "validate-commit-msg"
-    },
-    "validate-commit-msg": {
-      "types": [ "feat", "fix", "docs", "style", "refactor", "perf", "test", "build", "ci", "chore", "revert" ],
-      "scope": {
-        "required": false,
-        "allowed": [ "*" ],
-        "validate": false,
-        "multiple": false
-      },
-      "warnOnFail": false,
-      "maxSubjectLength": 100,
-      "subjectPattern": ".+",
-      "subjectPatternErrorMsg": "subject does not match subject pattern!",
-      "helpMessage": "",
-      "autoFix": true
+      "commit-msg": "commitlint -e"
     }
   }
 }
@@ -163,6 +148,20 @@ npm install conventional-changelog-cli -D
 ```
 
 > -s –same-file 输出到指定文件 CHANGELOG.md -r 0 –release-count tag生成数量，0为重新生成整个变更日志，包含所有tag
+
+### 5、`git commit`替代方案(可选)
+
+```bash
+npm install --save-dev @commitlint/prompt-cli
+```
+
+以后，凡是用到git commit命令，一律改为使用npx commit 或者 给package.json添加脚本scripts
+
+```json
+{
+  "commit": "commit"
+}
+```
 
 ## 三、综合使用
 
