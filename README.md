@@ -44,9 +44,9 @@
 }
 ```
 
-## 一、项目下安装commitlint依赖
+## 一、commit message 校验
 
-### 1、`git commit`替代方案(可选)
+### 1、项目下安装commitlint依赖
 
 ```bash
 npm install --save-dev @commitlint/{cli,config-conventional}
@@ -59,20 +59,16 @@ package.json添加`commitlint`filed,配置如下:
   "extends": [
     "@commitlint/config-conventional"
   ]
-},
+}
 ```
 
-## 二、配置
-
-### 1、commit-msg
+### 2、用git commit-msg hook对提交信息校验
 
 安装
 
 ```bash
 npm i ghooks -D
 ```
-
-> 用`commitlint`检查 Node 项目的 Commit message 是否符合格式
 
 使用`ghooks`，把`commitlint`加为commit-msg时运行
 
@@ -86,7 +82,9 @@ npm i ghooks -D
 }
 ```
 
-### 2、lint-staged
+## 二、其它配置
+
+### 1、lint-staged对提交代码eslint代码格式规范化校验
 
 安装
 
@@ -113,7 +111,7 @@ ghook中添加
 }
 ```
 
-### 3、新增标签tag
+### 2、新增标签tag
 
 自动生成新的tag，并产生changlog
 
@@ -133,7 +131,7 @@ npm i standard-version -D
 npm run release -- --release-as 1.0.0
 ```
 
-### 4、生成changelog
+### 3、生成changelog
 
 当然也可以不加tag，自己生成changelog。给package.json添加脚本scripts
 
@@ -149,7 +147,7 @@ npm install conventional-changelog-cli -D
 
 > -s –same-file 输出到指定文件 CHANGELOG.md -r 0 –release-count tag生成数量，0为重新生成整个变更日志，包含所有tag
 
-### 5、`git commit`替代方案(可选)
+### 4、`git commit`替代方案(可选)
 
 ```bash
 npm install --save-dev @commitlint/prompt-cli
