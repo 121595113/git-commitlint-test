@@ -49,7 +49,7 @@
 ### 1、项目下安装commitlint依赖
 
 ```bash
-npm install --save-dev @commitlint/{cli,config-conventional}
+npm install --save-dev @commitlint/{cli,config-conventional}@9.1.1
 ```
 
 package.json添加`commitlint`filed,配置如下:
