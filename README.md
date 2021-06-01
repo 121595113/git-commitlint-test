@@ -37,8 +37,8 @@
 {
   "scripts": {
     "commit": "commit",
-    "release": "standard-version",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -w -s -r 0",
+    "release": "standard-version --skip.commit --skip.tag --skip.changelog",
+    "changelog": "npm run release && conventional-changelog -p angular -i CHANGELOG.md -w -s -r 1",
     "eslint": "eslint --fix --format codeframe 'src/**/**.{js,vue}'"
   }
 }
@@ -121,7 +121,7 @@ npm i standard-version -D
 
 ```json
 {
-  "release": "standard-version",
+  "release": "standard-version --skip.commit --skip.tag --skip.changelog",
 }
 ```
 
@@ -141,11 +141,11 @@ npm install conventional-changelog-cli -D
 
 ```json
 {
-"changelog": "conventional-changelog -p angular -i CHANGELOG.md -w -s -r 0"
+"changelog": "npm run release && conventional-changelog -p angular -i CHANGELOG.md -w -s -r 1"
 }
 ```
 
-> -s –same-file 输出到指定文件 CHANGELOG.md -r 0 –release-count tag生成数量，0为重新生成整个变更日志，包含所有tag
+> -s –same-file 输出到指定文件 CHANGELOG.md -r 1 –release-count tag生成数量，0为重新生成整个变更日志，包含所有tag
 
 ### 4、`git commit`替代方案(可选)
 
